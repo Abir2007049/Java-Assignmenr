@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="15.0" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment_student_att_system.controller.ReportsController">
+   <children>
+      <!-- Filter and Action Bar -->
+      <HBox alignment="CENTER_LEFT" spacing="15.0" styleClass="stat-card">
+         <children>
+            <VBox spacing="4.0">
+               <children>
+                  <Label styleClass="stat-title" text="SELECT STUDENT" />
+                  <ComboBox fx:id="studentComboBox" prefWidth="250.0" styleClass="combo-box" />
+               </children>
+            </VBox>
+
+            <Button onAction="#generateReport" styleClass="btn-primary" text="🔍 Generate Report" />
+
+            <Region HBox.hgrow="ALWAYS" />
+
+            <Button onAction="#handleExportCSV" styleClass="btn-secondary" text="📥 Export CSV" />
+            <Button onAction="#handleExportTXT" styleClass="btn-success" text="📄 Export Text Summary" />
+         </children>
+      </HBox>
+
+      <!-- Preview Card -->
+      <VBox styleClass="stat-card" VBox.vgrow="ALWAYS">
+         <children>
+            <Label styleClass="header-title" text="Generated Report Preview" />
+            <TextArea fx:id="reportPreviewArea" editable="false" style="-fx-font-family: monospace; -fx-font-size: 13px; -fx-control-inner-background: #0f172a; -fx-text-fill: #38bdf8;" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
+   </children>
+</VBox>
